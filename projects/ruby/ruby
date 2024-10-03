@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>&lt;title&gt; element</title>
+    <link rel="stylesheet" href="../../CV Stylesheet.css" type="text/css" />
+    <script src="CVJS.js" defer></script>
+  </head>
+  <body class="CV-page-basics"></body>
+    <div id="header"> 
+     <h2 class="">August 2024</h2>
+     
+     <svg class="SVG-basics" >
+      <line  x1="1vw" y1="0" x2="90vw" y2="0" />
+     </svg>
+      <h2 class="art-department">Channel 4</h2>
+      <h2 class="art-department">Halcyon's Heart</h2>
+  
+      <h1> RUBY. </h1> 
+   
+    
+   </div>
+   
