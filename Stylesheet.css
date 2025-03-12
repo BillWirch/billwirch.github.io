@@ -1,0 +1,145 @@
+:root {
+    --primary-color: #fbba43;
+    --secondary-color: rgb(231, 231, 231);
+    --font-family: Arial, Helvetica, sans-serif;
+    --color: hsl(180, 5%, 16%);
+    --border-radius: 5px;
+    --box-shadow: 7px 7px 1px rgb(231, 231, 231);
+
+}
+
+.indexMain  {
+    display: grid; 
+    
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color:  var(--primary-color);
+    color: var(--color);
+    font-family: var(--font-family)
+}
+
+.headerName {
+    font-family: var (--font-family);
+    font-size: 400%;
+    text-shadow: 5px 5px 1px rgb(231, 231, 231);
+    line-height: ;
+    text-transform: capitalize;
+    line-height: 200%;
+    text-emphasis: bold;
+    font-weight: bold;
+    text-align:
+}
+
+ul.navBar1List    {
+    display: grid;
+
+}
+
+.navBar1Item    {
+    display: grid;
+    grid-template-columns: 2fr 2fr ;
+    grid-template-rows: 1fr ; 
+    width: 200px;0px;
+    height:absolute;
+    outline: 2px solid rgb(231, 231, 231);
+    border-radius: 5px;
+    padding: 6px;
+    box-shadow: 7px 7px 1px rgb(231, 231, 231);
+    margin-bottom: 20px;
+    transition-duration: 0.6s;
+
+}
+
+.navBar1Item:hover {
+    
+    box-shadow: -7px -7px 1px rgb(231, 231, 231);
+    
+}
+
+/* Header Styling */ change this /  this is for cv list header
+/* .header {
+    width: 80%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px; */
+}
+
+/* Project List Container */
+.projectList {
+    display: grid;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    height: 66vh; /* Two-thirds of the screen */
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+   
+    outline: 2px solid rgb(231, 231, 231);
+    
+}
+
+/* Styling the List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Each Project Item */
+.projectItem {
+    display: grid;
+    grid-template-columns: 2fr 3fr ; 
+    grid-template-rows: 2fr 4fr ;
+    gap: 10px;
+    background-color: var(--primary-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    //transition: transform 0.2s ease-in-out;
+    outline: 2px solid rgb(231, 231, 231);
+    margin-bottom: 20px;
+    transition-duration: 0.4s;
+}
+
+.projectItem:hover {
+    
+    box-shadow: -7px -7px 1px rgb(231, 231, 231);
+    
+}
+
+/* Project Details */
+.projectName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 1px rgb(231, 231, 231);
+    padding: .3rem;
+    background-color: rgb(231, 231, 231);
+
+}
+
+.projectRole    {
+    text-transform: uppercase;
+
+}
+
+.projectDescription, .projectReferences {
+    font-size: 1rem;
+}
