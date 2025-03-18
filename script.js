@@ -1,12 +1,59 @@
+// iv chosen to create this website using purely JS whenever possible, i started out
+// thinking this was the optimal way to do it, however i now think it is a bit convoluted
+
+// this object uses various functions to deploy the correct JS script on whichever page is rendered
+// I've done this using a simple switch although there must be better ways
+//
+
+const pageSelector = {
+      content: () => {
+            document.addEventListener('DOMContentLoaded', pageSelector.selected);
+            console.log('HTML Loaded');
+      },
+      selected: () => {
+            let page = document.body.id;
+            
+            const header = document.querySelector('header');
+            const main = document.querySelector('main');
+
+            if (!header || !main) {
+                  console.warn('Missing header or main element.');
+                  return;
+              }
+            
+            switch (page)     {
+                  case 'index':
+                        header.append(navBar1);
+                        navBar1.append(navBar1List);
+                        //make list go sideways
+                        //add contact backend stuff
+                        
+                  break;
+                  case 'filmtv' :
+                        // header.append(navBar2);
+                        main.append(projectList);
+                  break;
+                  case 'apps':
+                        console.log("Apps");
+                  break;
+                  case 'architecture':
+                        console.log("Architecture");
+                  default:
+                console.log("No matching page found.");
+             }
+
+            }
+      };
+
+
+
+
 /* Standard DOM elements to use in JS
 */
 const body = document.querySelector('body');
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 const footer = document.querySelector('footer');
-
-
-
 
 /* Customised DOM elements to use in JS
 */
@@ -16,9 +63,6 @@ const navBar1 = document.createElement('nav');
 const navBar1List = document.createElement('ul');
       navBar1List.className = 'navbar1list';
 
-//const navBar1Item = document.createElement('li');
-     // navBar1Item.className = 'navBar1Item';
-
 const headerName = document.createElement('div');
       headerName.className = "headerName";
       headerName.innerText = `will birch.`; 
@@ -27,9 +71,9 @@ const headerCV = document.createElement('div');
       headerCV.className = "headerCV";
       headerCV.innerText = 'CV'
 
-const listHeader = document.createElement('div');
-      listHeader.className = 'listHeader';
-      listHeader.innerText = "Film & TV";
+const filmTvHeader = document.createElement('div');
+      filmTvHeader.className = 'filmTvHeader';
+      filmTvHeader.innerText = "Film & TV";
 
 const creditsHeader = document.createElement('div');
       creditsHeader.className = 'creditsHeader';
@@ -38,20 +82,34 @@ const creditsHeader = document.createElement('div');
 
 const projectContainer = document.createElement('div');
       projectContainer.id = 'projectsContainer' //this is the container grid styled element
-// Function to control Navbar links on main page
+
+// an array of objects with name and link used to create a navbar 
+// foreach loop to run through these and create links from array obj components
 
 const navBar1Items = [
-    'Film & TV', 'Apps', 'Architecture'
-]
+      { name: 'Film & TV', url: 'film-tv.html' }, 
+      { name: 'Apps', url: 'apps.html' }, 
+      { name: 'Architecture', url: 'architecture.html' },
+      { name: 'Contact', url: 'contact.html' }
+  ];
+  
+   
+  navBar1Items.forEach(item => {
+      const navBar1Item = document.createElement('li');
+      navBar1Item.className = 'navBar1Item';
+  
+      // Create the <a> tag
+      const link = document.createElement('a');
+      link.href = item.url;           
+      link.textContent = item.name;   
+      link.className = 'navLink';     
+  
+      // Append the link inside the <li> element
+      navBar1Item.appendChild(link);
+      navBar1List.appendChild(navBar1Item);
 
-for ( i = 0; i < navBar1Items.length; i++) {
-    
-    const navBar1Item = document.createElement('li');
-    navBar1Item.className = 'navBar1Item';
-    //navBar1Item.id = navBar1List[i];
-    navBar1Item.innerText = (navBar1Items[i]);
-    navBar1List.append(navBar1Item);
-}
+      
+  });
 
 const projectList = document.createElement('ul');
       projectList.className = 'projectList';
@@ -59,7 +117,7 @@ const projectList = document.createElement('ul');
 // const projectItem = document.createElement('li');
 //       projectItem.className = 'projectItem';
     
-// Function to control Job list entries, designed to be easily editable via the data js filev cqwa2bz
+// array of Objects to control Job list entries, designed to be easily editable top down
 // const ProjectListEntries = (projects) =>  {
 
     let projects = [
@@ -91,6 +149,8 @@ const projectList = document.createElement('ul');
     
       ]
 
+// for loop controls the addition of the projects to the CV page
+
 for ( i = 0; i <projects.length; i++) {
 
     
@@ -118,17 +178,14 @@ for ( i = 0; i <projects.length; i++) {
     projectList.append(projectItem);
 }
 
-// return projectList
+// Execute page selector program
 
-// }
-       
-console.log(projectList);
+pageSelector.content();
 
-header.append(headerName);
-header.append(navBar1);
-navBar1.append(navBar1List);
-// main.append(projectList);
-// projectList.append()
+
+
+ 
+
 
 
 

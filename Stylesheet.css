@@ -39,15 +39,32 @@ body {
     text-align:
 }
 
-ul.navBar1List    {
-    display: grid;
 
+.navbar1list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 equal-width columns */
+    gap: 20px;   /* Space between items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+   
+}
+
+@media (max-width: 768px) {
+    .navbar1list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar1list {
+        grid-template-columns: 1fr; /* Stack vertically on very small screens */
+    }
 }
 
 .navBar1Item    {
-    display: grid;
-    grid-template-columns: 2fr 2fr ;
-    grid-template-rows: 1fr ; 
+    display: block;
     width: 200px;0px;
     height:absolute;
     outline: 2px solid rgb(231, 231, 231);
@@ -63,6 +80,14 @@ ul.navBar1List    {
     
     box-shadow: -7px -7px 1px rgb(231, 231, 231);
     
+}
+.navLink, .navLink:hover, .navLink:visited, .navLink:active {
+    color: inherit;
+    text-decoration: none;
+   }
+
+.navLink    {
+
 }
 
 /* Header Styling */ change this /  this is for cv list header
