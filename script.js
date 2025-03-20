@@ -15,18 +15,13 @@ const pageSelector = {
             
             const header = document.querySelector('header');
             const main = document.querySelector('main');
-
-            if (!header || !main) {
-                  console.warn('Missing header or main element.');
-                  return;
-              }
-            
+                  
             switch (page)     {
                   case 'index':
                         header.append(navBar1);
                         navBar1.append(navBar1List);
-                        //make list go sideways
-                        //add contact backend stuff
+                        
+                        //add contact form stuff
                         
                   break;
                   case 'filmtv' :
@@ -98,13 +93,13 @@ const navBar1Items = [
       const navBar1Item = document.createElement('li');
       navBar1Item.className = 'navBar1Item';
   
-      // Create the <a> tag
+    
       const link = document.createElement('a');
       link.href = item.url;           
       link.textContent = item.name;   
       link.className = 'navLink';     
   
-      // Append the link inside the <li> element
+      // Appending the link inside of the <li> element
       navBar1Item.appendChild(link);
       navBar1List.appendChild(navBar1Item);
 
@@ -184,7 +179,6 @@ pageSelector.content();
 
 
 
- 
 
 
 

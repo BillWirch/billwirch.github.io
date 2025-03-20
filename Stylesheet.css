@@ -8,17 +8,16 @@
 
 }
 
-.indexMain  {
-    display: grid; 
-    
+
+header{
     
 }
 
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Full viewport height */
