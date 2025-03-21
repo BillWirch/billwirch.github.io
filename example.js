@@ -37,7 +37,7 @@ class Maze {
   draw() {
     maze.width = this.size;
     maze.height = this.size;
-    //maze.style.background = "black";
+    maze.style.background = "black";
     // Set the first cell as visited
     current.visited = true;
     // Loop through the 2d grid array and call the show method for each cell instance
@@ -74,14 +74,10 @@ class Maze {
       return;
     }
 
-
-    this.draw();
-
-
     // Recursively call the draw function. This will be called up until the stack is empty
-    // window.requestAnimationFrame(() => {
-    //   this.draw();
-    // });
+    window.requestAnimationFrame(() => {
+      this.draw();
+    });
     //     setTimeout(() => {rd
     //       this.draw();
     //     }, 10);
@@ -169,7 +165,7 @@ class Cell {
     // Additions and subtractions added so the highlighted cell does cover the walls
     let x = (this.colNum * this.parentSize) / columns + 1;
     let y = (this.rowNum * this.parentSize) / columns + 1;
-    //ctx.fillStyle = "purple";
+    ctx.fillStyle = "purple";
     ctx.fillRect(
       x,
       y,
@@ -207,23 +203,23 @@ class Cell {
     let y = (this.rowNum * size) / rows;
     // console.log(`x =${x}`);
     // console.log(`y =${y}`);
-    ctx.strokeStyle = "#ffff";
-    ctx.fillStyle = '#fbba43';
+    ctx.strokeStyle = "#ffffff";
+    ctx.fillStyle = "black";
     ctx.lineWidth = 2;
-    if (this.walls.topWall) this.drawTopWall(x, y, size, columns , rows);
-    if (this.walls.rightWall) this.drawRightWall(x, y, size, columns , rows);
-    if (this.walls.bottomWall) this.drawBottomWall(x, y, size, columns , rows);
-    if (this.walls.leftWall) this.drawLeftWall(x, y, size, columns , rows);
+    if (this.walls.topWall) this.drawTopWall(x, y, size, columns, rows);
+    if (this.walls.rightWall) this.drawRightWall(x, y, size, columns, rows);
+    if (this.walls.bottomWall) this.drawBottomWall(x, y, size, columns, rows);
+    if (this.walls.leftWall) this.drawLeftWall(x, y, size, columns, rows);
     if (this.visited) {
-      ctx.fillRect(x +1, y +1, size / columns, size / rows );
+      ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
     }
     if (this.goal) {
-        ctx.fillStyle = "rgb(83, 247, 43)";
+      ctx.fillStyle = "rgb(83, 247, 43)";
       ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
     }
   }
 }
 
-let newMaze = new Maze(600, 25, 25);
- newMaze.setup();
- newMaze.draw();
+// let newMaze = new Maze(600, 50, 50);
+// newMaze.setup();
+// newMaze.draw();
