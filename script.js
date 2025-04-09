@@ -52,7 +52,7 @@ const footer = document.querySelector('footer');
 
 /* Customised DOM elements to use in JS
 */
-const navBar1 = document.createElement('nav');
+const navBar1 = document.createElement('nav');5 
       navBar1.className = 'navBar1';
 
 const navBar1List = document.createElement('ul');
