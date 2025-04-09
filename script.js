@@ -2,7 +2,7 @@
 // thinking this was the optimal way to do it, however i now think it is a bit convoluted
 
 // this object uses various functions to deploy the correct JS script on whichever page is rendered
-// I've done this using a simple switch although there must be better ways
+// I've done this using a simple switch although there m be better ways
 //
 
 const pageSelector = {
@@ -17,7 +17,7 @@ const pageSelector = {
             const main = document.querySelector('main');
 
             if (!header || !main) {
-                  console.warn('Missing header or main element.');
+                  console.warn('Missing Stuff');
                   return;
               }
             
@@ -141,12 +141,53 @@ const projectList = document.createElement('ul');
           projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena'
         },
         {
-          project: "Ruby",
+          project: "White Belt",
           projRole: "Production Designer",
-          projDesc: "Short Feature Channel 4",
-          projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena'
+          projDesc: "Short Feature \n Ki Films",
+          projRefs: 'Director - Beau Fowler \n Exec Producer - Andrew Koji \n Producer - David Mullenger'
         },
-    
+        {
+          project: "Standing Set Studio Build",
+          projRole: "Supervising Art Director",
+          projDesc: "Brentford Studios",
+          projRefs: 'Producer - Tara Llwellyn '
+        },
+        {
+            project: "Phoenix Rise Season 4",
+            projRole: "Art Director",
+            projDesc: "Drama Series \n BBC",
+            projRefs: 'Exec Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown'
+          },
+        {
+            project: "Phoenix Rise Season 3",
+            projRole: "Art Director",
+            projDesc: "Drama Series \n BBC",
+            projRefs: 'Exec Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown'
+          },
+        {
+            project: "Kanneda",
+            projRole: "Production Designer",
+            projDesc: "Web Series \n BLack Cumin Pictures",
+            projRefs: 'Director - Chandan Arora \n Exec Producer - Nitin Upadhyaya \n Producer - Tara Llewllyn'
+          },
+        {
+            project: "Kadhal Konjam Thookala",
+            projRole: "Art Director",
+            projDesc: "Feature \n Cupid Films",
+            projRefs: 'Director - Balaji Mohan \n Producer - Ashwani Chopra'
+          },
+        {
+            project: "Trying Season 3",
+            projRole: "Draughtsperson - Daily",
+            projDesc: "Series \n Apple TV",
+            projRefs: 'Prod Design - Charlotte Pearson \n Super Art Dir - Neil McAllister \n Art Director - Edd Cross'
+          },
+        {
+            project: "Inside No. 9",
+            projRole: "Art Director",
+            projDesc: "Series \n Apple TV",
+            projRefs: 'Prod Design - Charlotte Pearson \n Super Art Dir - Neil McAllister \n Art Director - Edd Cross'
+          },
       ]
 
 // for loop controls the addition of the projects to the CV page
