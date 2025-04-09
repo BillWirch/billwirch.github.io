@@ -179,14 +179,26 @@ const projectList = document.createElement('ul');
         {
             project: "Trying Season 3",
             projRole: "Draughtsperson - Daily",
-            projDesc: "Series \n Apple TV",
+            projDesc: "Drama Series \n Apple TV",
             projRefs: 'Prod Design - Charlotte Pearson \n Super Art Dir - Neil McAllister \n Art Director - Edd Cross'
           },
         {
             project: "Inside No. 9",
             projRole: "Art Director",
-            projDesc: "Series \n Apple TV",
-            projRefs: 'Prod Design - Charlotte Pearson \n Super Art Dir - Neil McAllister \n Art Director - Edd Cross'
+            projDesc: "Comedy Drama Series \n BBC",
+            projRefs: 'Exec Prods - Steve Pemberton \n Reece Shearsmith \n Producer - Kim Crowther \n Prod Design - Paul Rowan'
+          },
+        {
+            project: "Tehran",
+            projRole: "Art Director",
+            projDesc: "Motion Picture \n Pacific Worldwide Films",
+            projRefs: 'Director - Arun Gopalan \n Producer - Cyrus Patel \n Prod Design - Paul Rowan'
+          },
+        {
+            project: "Beaneath the Seams",
+            projRole: "Props Supervisor",
+            projDesc: 'Haus fo Kraft',
+            projRefs: 'Prod Design - Marsha Roddy \n Art Dir. Jeanefer Jean-Charles'
           },
       ]
 
