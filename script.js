@@ -17,7 +17,7 @@ const pageSelector = {
             const main = document.querySelector('main');
 
             if (!header || !main) {
-                  console.warn('Missing Stuff');
+                  console.warn('Missing header or main element.');
                   return;
               }
             
@@ -25,8 +25,8 @@ const pageSelector = {
                   case 'index':
                         header.append(navBar1);
                         navBar1.append(navBar1List);
-                        //make list go sideways
-                        //add contact backend stuff
+                        
+                        //add contact form stuff
                         
                   break;
                   case 'filmtv' :
@@ -57,7 +57,7 @@ const footer = document.querySelector('footer');
 
 /* Customised DOM elements to use in JS
 */
-const navBar1 = document.createElement('nav');
+const navBar1 = document.createElement('nav');5 
       navBar1.className = 'navBar1';
 
 const navBar1List = document.createElement('ul');
@@ -98,13 +98,13 @@ const navBar1Items = [
       const navBar1Item = document.createElement('li');
       navBar1Item.className = 'navBar1Item';
   
-      // Create the <a> tag
+    
       const link = document.createElement('a');
       link.href = item.url;           
       link.textContent = item.name;   
       link.className = 'navLink';     
   
-      // Append the link inside the <li> element
+      // Appending the link inside of the <li> element
       navBar1Item.appendChild(link);
       navBar1List.appendChild(navBar1Item);
 
@@ -225,7 +225,6 @@ pageSelector.content();
 
 
 
- 
 
 
 
