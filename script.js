@@ -204,7 +204,7 @@ const projectList = document.createElement('ul');
 
 // for loop controls the addition of the projects to the CV page
 
-for ( i = 0; i <projects.length; i++) {
+for ( let i = 0; i <projects.length; i++) {
 
     
 
