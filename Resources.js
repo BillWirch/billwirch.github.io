@@ -4,7 +4,7 @@ class Resources {
             sky: './gameImages/sky.jpeg',
             ground: './gameImages/ground.png',
             hero: './gameImages/hero.png',
-            shadow: './gameImages/shadow.jpg',
+            shadow: './gameImages/shadow.png',
         };
 
         this.images = {};

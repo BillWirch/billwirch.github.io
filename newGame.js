@@ -36,12 +36,16 @@ const myGameArea = {
 
 const hero = new Sprite({
     resource: resources.images.hero,
-    frameSize: new Vector2(125,150),
+    frameSize: new Vector2(64,75),
     hFrames: 4,
     vFrames: 4,
-    frame: 0,
-    scale: 0.5,
+    frame: 1,
+    scale: 1,
 });
+const shadow = new Sprite({
+    resource: resources.images.shadow,
+    frameSize: new Vector2(64, 75)
+})
 
 const heroPos = new Vector2(64 * 4, 75 * 3)
 
@@ -53,7 +57,8 @@ const heroPos = new Vector2(64 * 4, 75 * 3)
     const heroOffset = new Vector2(-8, -21);
     const heroPosX = heroPos.x+heroOffset.x;
     const heroPosY = heroPos.y+1+heroOffset.y;
-    
+
+    shadow.drawImage(myGameArea.context,heroPos.x, heroPos.y)
     hero.drawImage(myGameArea.context,heroPos.x, heroPos.y)
     //myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
     
@@ -128,6 +133,7 @@ const heroPos = new Vector2(64 * 4, 75 * 3)
 
 setInterval(()  =>  {
     console.log("draw");
+    // hero.frame +=1;
     draw();
 }, 300)
 
