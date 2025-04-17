@@ -5,6 +5,7 @@
 
 import { GameLoop } from "./GameLoop.js";
 import { gridCells } from "./helpers/grid.js";
+import { moveTowards } from "./helpers/moveTowards.js";
 import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
 import { resources } from "./Resources.js";
 import { Sprite } from "./sprite.js";
@@ -47,44 +48,85 @@ const hero = new Sprite({
     vFrames: 4,
     frame: 0,
     position: new Vector2(gridCells(10), gridCells(15))
-});
+})
+
+const heroDestinationPosition = hero.position.duplicate();
+
+
 const shadow = new Sprite({
     resource: resources.images.shadow,
     frameSize: new Vector2(64, 75)
 })
 
-// const hero.position = new Vector2(64 * 4, 75 * 3);
+
 const input = new Input();
 
 const update = () => {
 
+    const distance = moveTowards(hero, heroDestinationPosition, 1);
+    // 1 instead of 0, this allows you to reach destintion even if you release key
+    const hasArrived = distance <= 1;
+    // attemot to move again if the characrter is at new position
+    if (hasArrived) {
+        tryMove();
+    }
+    
+
+    
+
+   
+
+};
+console.log(input.direction);
+
+const tryMove = () => {
+    if (!input.direction) {
+        return;
+    }
+    // where dstinatin pos is now, grid size is like
+    //minimum move distance
+    //so we move toward dest position by 1 incremented grid size +=
+    let nextX = heroDestinationPosition.x;
+    let nextY = heroDestinationPosition.y;
+    const gridSize = 16;
+
     if (input.direction === DOWN) {
-        hero.position.y += 1;
+        nextY += gridSize;
+        //hero.position.y += 1;
         hero.frame = 0;
         // keydown for frames1-3, keyup frame 0?
     }
     if (input.direction === UP) {
-        hero.position.y -= 1;
+        nextY -= gridSize;
+        //hero.position.y -= 1;
         hero.frame = 4;
     }
     if (input.direction === LEFT) {
-        hero.position.x -= 1;
+       
+        nextX -= gridSize;
+        // hero.position.x -= 1;
         hero.frame = 8;
     }
     if (input.direction === RIGHT) {
-        hero.position.x += 1;
+        nextX += gridSize;
+        //hero.position.x += 1;
         hero.frame = 12;
     }
+    
+    console.log(input.direction);
+    //updating position of hero
 
-   console.log(input.direction);
+    heroDestinationPosition.x = nextX;
+    heroDestinationPosition.y = nextY;
 
-};
+}
 
   const draw = ()   =>  {
     skySprite.drawImage(myGameArea.context, 0, 0);
     groundSprite.drawImage(myGameArea.context, 80, 0);
 
     // centrre hero in cell
+    //offsets hero from original position which 
     const heroOffset = new Vector2(-8, -21);
     const heroPosX = hero.position.x+heroOffset.x;
     const heroPosY = hero.position.y+1+heroOffset.y;
