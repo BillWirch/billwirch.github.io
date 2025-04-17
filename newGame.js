@@ -1,5 +1,11 @@
 //https://www.youtube.com/watch?v=HmxNrlPx8iY&t=515s
 
+// this is a great tutorial, everythng is in diff docuemtns which are imported
+// easy to look at and dismantle mentally
+
+import { GameLoop } from "./GameLoop.js";
+import { gridCells } from "./helpers/grid.js";
+import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
 import { resources } from "./Resources.js";
 import { Sprite } from "./sprite.js";
 import { Vector2 } from "./Vector2.js";
@@ -39,15 +45,40 @@ const hero = new Sprite({
     frameSize: new Vector2(64,75),
     hFrames: 4,
     vFrames: 4,
-    frame: 1,
-    scale: 1,
+    frame: 0,
+    position: new Vector2(gridCells(10), gridCells(15))
 });
 const shadow = new Sprite({
     resource: resources.images.shadow,
     frameSize: new Vector2(64, 75)
 })
 
-const heroPos = new Vector2(64 * 4, 75 * 3)
+// const hero.position = new Vector2(64 * 4, 75 * 3);
+const input = new Input();
+
+const update = () => {
+
+    if (input.direction === DOWN) {
+        hero.position.y += 1;
+        hero.frame = 0;
+        // keydown for frames1-3, keyup frame 0?
+    }
+    if (input.direction === UP) {
+        hero.position.y -= 1;
+        hero.frame = 4;
+    }
+    if (input.direction === LEFT) {
+        hero.position.x -= 1;
+        hero.frame = 8;
+    }
+    if (input.direction === RIGHT) {
+        hero.position.x += 1;
+        hero.frame = 12;
+    }
+
+   console.log(input.direction);
+
+};
 
   const draw = ()   =>  {
     skySprite.drawImage(myGameArea.context, 0, 0);
@@ -55,15 +86,27 @@ const heroPos = new Vector2(64 * 4, 75 * 3)
 
     // centrre hero in cell
     const heroOffset = new Vector2(-8, -21);
-    const heroPosX = heroPos.x+heroOffset.x;
-    const heroPosY = heroPos.y+1+heroOffset.y;
+    const heroPosX = hero.position.x+heroOffset.x;
+    const heroPosY = hero.position.y+1+heroOffset.y;
 
-    shadow.drawImage(myGameArea.context,heroPos.x, heroPos.y)
-    hero.drawImage(myGameArea.context,heroPos.x, heroPos.y)
+        //drawimg shadow first so it is underneatrh hero
+    shadow.drawImage(myGameArea.context,heroPosX, heroPosY)
+    hero.drawImage(myGameArea.context,heroPosX, heroPosY)
+
+}
+
+
+    const gameLoop = new GameLoop(update, draw);
+    gameLoop.start();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        startGame();
+    });
+
     //myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
     
     
-};
+
 // this is outdated, shoudl be removed
     //  // Clear canvas first
    // myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
@@ -131,12 +174,9 @@ const heroPos = new Vector2(64 * 4, 75 * 3)
 
 
 
-setInterval(()  =>  {
-    console.log("draw");
-    // hero.frame +=1;
-    draw();
-}, 300)
+// setInterval(()  =>  {
+//     console.log("draw");
+//    // hero.frame +=1;
+//     draw();
+// }, 300)
 
-document.addEventListener('DOMContentLoaded', () => {
-    startGame();
-});

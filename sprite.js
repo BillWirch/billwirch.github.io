@@ -21,13 +21,15 @@ export class Sprite {
         this.hFrames = hFrames ?? 1;
         this.vFrames = vFrames ?? 1;
         this.frame = frame ?? 0;
-        this.frameMap = new Map();
+        this.frameMap = new Map(); //unsure how this links to BFM below
         this.scale = scale ?? 1;
         this.position = position ?? new Vector2(0,0);
         this.buildFrameMap();
     }
 
     // this is the frame map which will be used to take frames from the sprite sheet
+    // thsi generatres the grid by looping vertically then hzntally, within are FRAMES
+    // this uses the amount of h and v frames  in the class to generate set number of frames
     buildFrameMap()  {
         let frameCount = 0;
         for (let v = 0; v < this.vFrames; v++)  {
@@ -51,7 +53,7 @@ export class Sprite {
         return;
     }
 
-    //find correct sprite sheet for framne to use
+    //find correct framne to use within sprite sheet and select within sheet
     let frameCoordX = 0;
     let frameCoordY = 0;
     const frame = this.frameMap.get(this.frame);
