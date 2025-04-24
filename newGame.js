@@ -4,7 +4,7 @@
 // easy to look at and dismantle mentally
 
 import { GameLoop } from "./GameLoop.js";
-import { gridCells } from "./helpers/grid.js";
+import { gridCells, isSpaceFree } from "./helpers/grid.js";
 import { moveTowards } from "./helpers/moveTowards.js";
 import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
 import { resources } from "./Resources.js";
@@ -13,6 +13,7 @@ import { Vector2 } from "./Vector2.js";
 import { Animations } from "./Animations.js";
 import { FrameIndexPattern } from "./frameIndexPattern.js";
 import { STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP } from "./Objects/Hero/heroAnimation.js";
+import { walls } from "./Levels/Level1.js";
 
 // need to build some image files for the game - sky, grass, wall, player, enemy, door, key
 
@@ -138,12 +139,16 @@ const tryMove = () => {
         //hero.frame = 12;
     }
     
-    heroFacing = input.direction ?? heroFacing;
-    console.log(input.direction);
+   
     //updating position of hero
 
+    if (isSpaceFree(walls, nextX, nextY)) 
+        {
+            heroFacing = input.direction ?? heroFacing;
+            console.log(input.direction);
     heroDestinationPosition.x = nextX;
     heroDestinationPosition.y = nextY;
+    }
 
 }
 
