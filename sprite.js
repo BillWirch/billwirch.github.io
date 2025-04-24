@@ -1,4 +1,5 @@
 import { Vector2 } from "./Vector2.js";
+import { Animations } from "./Animations.js";
 
 
 export class Sprite {
@@ -10,6 +11,7 @@ export class Sprite {
         frame,      // which frame we want to show
         scale,      // how large to draw image
         position,       // where to draw image
+        animations,
 
         // this is going to be called everytimne we use a new sprite, 
         // we will genersate a grid oin the sprite sheet so we call frame 
@@ -24,6 +26,7 @@ export class Sprite {
         this.frameMap = new Map(); //unsure how this links to BFM below
         this.scale = scale ?? 1;
         this.position = position ?? new Vector2(0,0);
+        this.animations = animations ?? null;
         this.buildFrameMap();
     }
 
@@ -44,6 +47,17 @@ export class Sprite {
             }
         }
 
+    }
+// adding this here now to be wired thorugh the sprite
+//there will be a meta delta which will be used across the board later in the 
+// course but we are yet to get there
+// so currently wiring a step method (loop) individually
+    step(delta) {
+        if (!this.animations) {
+            return; // no animation? dont do anything
+        }
+        this.animations.step(delta);
+        this.frame = this.animations.frame;
     }
 
     

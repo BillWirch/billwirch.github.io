@@ -10,6 +10,9 @@ import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
 import { resources } from "./Resources.js";
 import { Sprite } from "./sprite.js";
 import { Vector2 } from "./Vector2.js";
+import { Animations } from "./Animations.js";
+import { FrameIndexPattern } from "./frameIndexPattern.js";
+import { STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP } from "./Objects/Hero/heroAnimation.js";
 
 // need to build some image files for the game - sky, grass, wall, player, enemy, door, key
 
@@ -47,10 +50,22 @@ const hero = new Sprite({
     hFrames: 4,
     vFrames: 4,
     frame: 0,
-    position: new Vector2(gridCells(10), gridCells(15))
+    position: new Vector2(gridCells(10), gridCells(15)),
+    animations: new Animations ({
+        walkDown: new FrameIndexPattern(WALK_DOWN),
+        walkUp: new FrameIndexPattern(WALK_UP),
+        walkLeft: new FrameIndexPattern(WALK_LEFT),
+        walkRight: new FrameIndexPattern(WALK_RIGHT),
+        standDown: new FrameIndexPattern(STAND_DOWN),
+        standUp: new FrameIndexPattern(STAND_UP),
+        standLeft: new FrameIndexPattern(STAND_LEFT),
+        standRight: new FrameIndexPattern(STAND_RIGHT),
+        
+    })
 })
 
 const heroDestinationPosition = hero.position.duplicate();
+let heroFacing = DOWN;
 
 
 const shadow = new Sprite({
@@ -61,7 +76,7 @@ const shadow = new Sprite({
 
 const input = new Input();
 
-const update = () => {
+const update = (delta) => {
 
     const distance = moveTowards(hero, heroDestinationPosition, 1);
     // 1 instead of 0, this allows you to reach destintion even if you release key
@@ -71,7 +86,8 @@ const update = () => {
         tryMove();
     }
     
-
+    // hero animation controls
+    hero.step(delta);
     
 
    
@@ -81,6 +97,12 @@ console.log(input.direction);
 
 const tryMove = () => {
     if (!input.direction) {
+
+       if(heroFacing ===LEFT) {hero.animations.play('standLeft')} 
+       if(heroFacing === RIGHT) {hero.animations.play('standRight')} 
+       if(heroFacing === UP) {hero.animations.play('standUp')} 
+       if(heroFacing === DOWN) {hero.animations.play('standDown')} 
+
         return;
     }
     // where dstinatin pos is now, grid size is like
@@ -92,27 +114,31 @@ const tryMove = () => {
 
     if (input.direction === DOWN) {
         nextY += gridSize;
+        hero.animations.play('walkDown');
         //hero.position.y += 1;
-        hero.frame = 0;
+        // hero.frame = 0;
         // keydown for frames1-3, keyup frame 0?
     }
     if (input.direction === UP) {
         nextY -= gridSize;
+        hero.animations.play('walkUp');
         //hero.position.y -= 1;
-        hero.frame = 4;
+        //hero.frame = 4;
     }
     if (input.direction === LEFT) {
-       
         nextX -= gridSize;
+        hero.animations.play('walkLeft');
         // hero.position.x -= 1;
-        hero.frame = 8;
+       // hero.frame = 8;
     }
     if (input.direction === RIGHT) {
         nextX += gridSize;
+        hero.animations.play('walkRight');
         //hero.position.x += 1;
-        hero.frame = 12;
+        //hero.frame = 12;
     }
     
+    heroFacing = input.direction ?? heroFacing;
     console.log(input.direction);
     //updating position of hero
 
