@@ -3,15 +3,15 @@
 // this is a great tutorial, everythng is in diff docuemtns which are imported
 // easy to look at and dismantle mentally
 
-import { GameLoop } from "./GameLoop.js";
+import { GameLoop } from "./Objects/GameLoop.js";
 import { gridCells, isSpaceFree } from "./helpers/grid.js";
 import { moveTowards } from "./helpers/moveTowards.js";
-import { DOWN, Input, LEFT, RIGHT, UP } from "./Input.js";
-import { resources } from "./Resources.js";
-import { Sprite } from "./sprite.js";
-import { Vector2 } from "./Vector2.js";
-import { Animations } from "./Animations.js";
-import { FrameIndexPattern } from "./frameIndexPattern.js";
+import { DOWN, Input, LEFT, RIGHT, UP } from "./Objects/Input.js";
+import { resources } from "./Objects/Resources.js";
+import { Sprite } from "./Objects/sprite.js";
+import { Vector2 } from "./Objects/Vector2.js";
+import { Animations } from "./Objects/Animations.js";
+import { FrameIndexPattern } from "./Objects/frameIndexPattern.js";
 import { STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP } from "./Objects/Hero/heroAnimation.js";
 import { walls } from "./Levels/Level1.js";
 
@@ -36,14 +36,14 @@ const myGameArea = {
   }}
 
  
-  const skySprite = new Sprite({
-    resource: resources.images.sky,
+  const level1Sprite = new Sprite({
+    resource: resources.images.level1,
     frameSize: new Vector2(640, 360)
 })
-  const groundSprite = new Sprite({
-    resource: resources.images.ground,
-    frameSize: new Vector2(640, 360)
-})
+//   const groundSprite = new Sprite({
+//     resource: resources.images.ground,
+//     frameSize: new Vector2(640, 360)
+// })
 
 const hero = new Sprite({
     resource: resources.images.hero,
@@ -138,7 +138,7 @@ const tryMove = () => {
         //hero.position.x += 1;
         //hero.frame = 12;
     }
-    
+    //console.log('Current walls:', Array.from(walls));
    
     //updating position of hero
 
@@ -153,12 +153,21 @@ const tryMove = () => {
 }
 
   const draw = ()   =>  {
-    skySprite.drawImage(myGameArea.context, 0, 0);
-    groundSprite.drawImage(myGameArea.context, 80, 0);
+    level1Sprite.drawImage(myGameArea.context, 0, 0);
 
-    // centrre hero in cell
-    //offsets hero from original position which 
-    const heroOffset = new Vector2(-8, -21);
+    // Debug: Draw wall coordinates
+    myGameArea.context.fillStyle = 'rgba(255, 0, 0, 0.5)';
+    walls.forEach(wall => {
+        const [x, y] = wall.split(',').map(Number);
+        myGameArea.context.fillRect(x, y, 4, 4);
+    });
+
+     // Debug: Draw collision check point in blue
+     myGameArea.context.fillStyle = 'rgba(0, 0, 255, 0.5)';
+     myGameArea.context.fillRect(heroDestinationPosition.x, heroDestinationPosition.y, 4, 4);
+
+    // Hero drawing
+    const heroOffset = new Vector2(-16, -16);
     const heroPosX = hero.position.x+heroOffset.x;
     const heroPosY = hero.position.y+1+heroOffset.y;
 

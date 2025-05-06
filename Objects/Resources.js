@@ -1,8 +1,8 @@
 class Resources {
     constructor() {
         this.toLoad = {
-            sky: './gameImages/sky.jpeg',
-            ground: './gameImages/ground.png',
+            level1: './gameImages/TowerBridgeLevel1.png',
+            //ground: './gameImages/ground.png',
             hero: './gameImages/hero.png',
             shadow: './gameImages/shadow.png',
         };
