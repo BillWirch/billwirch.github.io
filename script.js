@@ -32,14 +32,12 @@ const pageSelector = {
                   break;
                   case 'filmtv' :
                         // header.append(navBar2);
-                        // need to style all the headers // grid assign them
-                        // could possibly use the same class for all then
-                        // use id to grid assign?
+                        // need to grid assign the headers
                         main.append(filmTvHeader);
-                        filmTvHeader.append(creditsHeader   );
-                        filmTvHeader.append(projectList);
+                        main.append(creditsHeader);
+                        main.append(projectList);
                         main.append(commercialHeader);
-                        commercialHeader.append(projectListCommercial);
+                        main.append(projectListCommercial);
                   break;
                   case 'apps':
                         console.log("Apps");
@@ -73,7 +71,7 @@ const navBar1List = document.createElement('ul');
       navBar1List.className = 'navbar1list';
 
 const headerName = document.createElement('div');
-      headerName.className = "headerName";
+      headerName.className = "mainHeader";
       headerName.innerText = `will birch.`; 
 
 const headerCV = document.createElement('div');
@@ -81,15 +79,18 @@ const headerCV = document.createElement('div');
       headerCV.innerText = 'CV'
 
 const filmTvHeader = document.createElement('div');
-      filmTvHeader.className = 'filmTvHeader';
+      filmTvHeader.className = 'mainHeader';
+      filmTvHeader.id = 'filmTvHeader';
       filmTvHeader.innerText = "Film & TV";
 
 const commercialHeader = document.createElement('div');
-      filmTvHeader.className = 'filmTvHeader';
+      commercialHeader.className = 'mainHeader';
+      commercialHeader.id = 'commercialHeader';
       commercialHeader.innerText = "Commercial";
 
 const creditsHeader = document.createElement('div');
-      creditsHeader.className = 'creditsHeader';
+      creditsHeader.className = 'mainHeader';
+      creditsHeader.id = 'creditsHeader';
       creditsHeader.innerText = "Credits"; 
     
 
