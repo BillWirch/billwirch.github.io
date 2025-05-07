@@ -4,6 +4,7 @@
 // this object uses various functions to deploy the correct JS script on whichever page is rendered
 // I've done this using a simple switch although there m be better ways
 //
+// there should be an import export of the data and functions to make this easier to read
 
 const pageSelector = {
       content: () => {
@@ -31,7 +32,14 @@ const pageSelector = {
                   break;
                   case 'filmtv' :
                         // header.append(navBar2);
-                        main.append(projectList);
+                        // need to style all the headers // grid assign them
+                        // could possibly use the same class for all then
+                        // use id to grid assign?
+                        main.append(filmTvHeader);
+                        filmTvHeader.append(creditsHeader   );
+                        filmTvHeader.append(projectList);
+                        main.append(commercialHeader);
+                        commercialHeader.append(projectListCommercial);
                   break;
                   case 'apps':
                         console.log("Apps");
@@ -56,6 +64,7 @@ const main = document.querySelector('main');
 const footer = document.querySelector('footer');
 
 /* Customised DOM elements to use in JS
+could a js class be made with all these in to be reeled out when needed?
 */
 const navBar1 = document.createElement('nav');5 
       navBar1.className = 'navBar1';
@@ -75,13 +84,17 @@ const filmTvHeader = document.createElement('div');
       filmTvHeader.className = 'filmTvHeader';
       filmTvHeader.innerText = "Film & TV";
 
+const commercialHeader = document.createElement('div');
+      filmTvHeader.className = 'filmTvHeader';
+      commercialHeader.innerText = "Commercial";
+
 const creditsHeader = document.createElement('div');
       creditsHeader.className = 'creditsHeader';
       creditsHeader.innerText = "Credits"; 
     
 
 const projectContainer = document.createElement('div');
-      projectContainer.id = 'projectsContainer' //this is the container grid styled element
+      projectContainer.id = 'projectsContainer' //this is the container grid styled element - not sure tis is being used anymore
 
 // an array of objects with name and link used to create a navbar 
 // foreach loop to run through these and create links from array obj components
@@ -113,6 +126,8 @@ const navBar1Items = [
 
 const projectList = document.createElement('ul');
       projectList.className = 'projectList';
+
+const projectListTitle = document.createElement('div');
 
 // const projectItem = document.createElement('li');
 //       projectItem.className = 'projectItem';
@@ -149,7 +164,7 @@ const projectList = document.createElement('ul');
             project: "Phoenix Rise Season 4",
             projRole: "Art Director",
             projDesc: "Drama Series \n BBC",
-            projRefs: 'Exec Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
+            projRefs: 'Executive Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
             projectBGImage: 'projectS/phoenix-rise/BGImage.png' 
       },
           {
@@ -163,14 +178,14 @@ const projectList = document.createElement('ul');
             project: "White Belt",
             projRole: "Art Director",
             projDesc: "Short Feature \n Ki Films",
-            projRefs: 'Director - Beau Fowler \n Exec Producer - Andrew Koji \n Producer - David Mullenger',
+            projRefs: 'Director - Beau Fowler \n Executive Producer - Andrew Koji \n Producer - David Mullenger',
             projectBGImage: 'projectS/white-belt/BGImage.png' 
       },
         {
             project: "Phoenix Rise Season 3",
             projRole: "Art Director",
             projDesc: "Drama Series \n BBC",
-            projRefs: 'Exec Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
+            projRefs: 'Executive Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
             projectBGImage: 'projectS/phoenix-rise/BGImage2.png' 
       },
         {
@@ -185,14 +200,14 @@ const projectList = document.createElement('ul');
             project: "Trying Season 3",
             projRole: "Draughtsperson - Daily",
             projDesc: "Drama Series \n Apple TV",
-            projRefs: 'Prod Design - Charlotte Pearson \n Super Art Dir - Neil McAllister \n Art Director - Edd Cross',
+            projRefs: 'Production Design - Charlotte Pearson \n Supervising Art Director - Neil McAllister \n Art Director - Edd Cross',
             projectBGImage: 'projectS/person-of-interest/BGImage.png' 
       },
         {
             project: "Inside No. 9",
             projRole: "Art Director",
             projDesc: "Comedy Drama Series \n BBC",
-            projRefs: 'Exec Prods - Steve Pemberton \n Reece Shearsmith \n Producer - Kim Crowther \n Prod Design - Paul Rowan',
+            projRefs: 'Executive Prods - Steve Pemberton \n Reece Shearsmith \n Producer - Kim Crowther \n Prod Design - Paul Rowan',
             projectBGImage: 'projectS/person-of-interest/BGImage.png' 
       },
         {
@@ -206,7 +221,7 @@ const projectList = document.createElement('ul');
             project: "Beaneath the Seams",
             projRole: "Props Supervisor",
             projDesc: 'Haus fo Kraft',
-            projRefs: 'Prod Design - Marsha Roddy \n Art Dir. Jeanefer Jean-Charles',
+            projRefs: 'Producton Design - Marsha Roddy \n Art Director Jeanefer Jean-Charles',
             projectBGImage: 'projectS/person-of-interest/BGImage.png' 
       },
           {
@@ -273,12 +288,13 @@ const projectList = document.createElement('ul');
             projRefs: 'Executive Producer - Andy Scott\n Producer - Wendi Rose\n  Producer - Rob Morris',
             projectBGImage: 'projectS/person-of-interest/BGImage.png' 
       }
-      ]
+      ];
 
-      const projectListomnmercial = document.createElement('ul');
-      projectList.className = 'projectListCommercial';
+      
 
 // for loop controls the addition of the projects to the CV page
+// have used a loop instead of forEach as the indexing is required
+// also is a for loop quikcer?
 
 for ( let i = 0; i <projects.length; i++) {
 
@@ -309,8 +325,61 @@ for ( let i = 0; i <projects.length; i++) {
 
     projectItem.append(projectBGImage,projectName, projectRole, projectDescription, projectReferences);
     projectList.append(projectItem);
-}
+};
 
+let projectsCommercial = [
+    
+       
+      {
+      project: "Noe & Associates",
+      projRole: "Props",
+      projDesc: "Corporate Office Letting Commercial",
+      projRefs: 'Head Stylist - Hannah Cork',
+      projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+    },
+      {
+      project: "Go Outdoors",
+      projRole: "Art Director",
+      projDesc: "Go Outdoors Retail Commercial",
+      projRefs: 'Producer - Jess Motler\n Producer - Sophie Finnigan\nDirector - Phil Hawkins\n DOP - James Oldham',
+      projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+    }
+];
+
+const projectListCommercial = document.createElement('ul');
+      projectListCommercial.className = 'projectList';
+
+
+for ( let i = 0; i <projectsCommercial.length; i++) {
+
+    
+
+    const projectItem = document.createElement('li');
+    projectItem.className = 'projectItem';
+
+    const projectBGImage = document.createElement('img');
+    projectBGImage.className = ('projectBGImage');
+    projectBGImage.src = (projectsCommercial[i].projectBGImage)
+    
+    const projectName = document.createElement('div'); // should it be an li?
+    projectName.className = 'projectName';
+    projectName.innerText = (projectsCommercial[i].project);
+
+    const projectRole = document.createElement('div'); // should it be an div?
+    projectRole.className = 'projectRole';
+    projectRole.innerText = (projectsCommercial[i].projRole);
+    
+    const projectDescription = document.createElement('div'); // should it be an li?
+    projectDescription.className = 'projectDescription';
+    projectDescription.innerText = (projectsCommercial[i].projDesc);
+    
+    const projectReferences = document.createElement('div'); // should it be an li?
+    projectReferences.className = 'projectReferences';
+    projectReferences.innerText = (projectsCommercial[i].projRefs);
+
+    projectItem.append(projectBGImage,projectName, projectRole, projectDescription, projectReferences);
+    projectListCommercial.append(projectItem);
+}
 // Execute page selector program
 
 pageSelector.content();
@@ -329,9 +398,7 @@ pageSelector.content();
 
 //this needs to be a function, and might be better suited to being an array
 
-//overarching function which creates several functions within itself with 
-//different styles
-// a data js file as well as a functions js file?
+
 
 
 // api's to be listed on site - 

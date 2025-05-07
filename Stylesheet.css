@@ -128,7 +128,7 @@ header.projectList {
 }
 
 /* Styling the List */
-ul {
+ul.projectList {
     display: grid;
     
 
