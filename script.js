@@ -34,7 +34,6 @@ const pageSelector = {
                         // header.append(navBar2);
                         // need to grid assign the headers
                         main.append(filmTvHeader);
-                        main.append(creditsHeader);
                         main.append(projectList);
                         main.append(commercialHeader);
                         main.append(projectListCommercial);
@@ -81,12 +80,12 @@ const headerCV = document.createElement('div');
 const filmTvHeader = document.createElement('div');
       filmTvHeader.className = 'mainHeader';
       filmTvHeader.id = 'filmTvHeader';
-      filmTvHeader.innerText = "Film & TV";
+      filmTvHeader.innerText = "Film & TV // credits";
 
 const commercialHeader = document.createElement('div');
       commercialHeader.className = 'mainHeader';
       commercialHeader.id = 'commercialHeader';
-      commercialHeader.innerText = "Commercial";
+      commercialHeader.innerText = "Commercials // credits";
 
 const creditsHeader = document.createElement('div');
       creditsHeader.className = 'mainHeader';
@@ -194,7 +193,7 @@ const projectListTitle = document.createElement('div');
             projRole: "Production Designer",
             projDesc: "Web Series \n Black Cumin Pictures",
             projRefs: 'Director - Chandan Arora \n Exec Producer - Nitin Upadhyaya \n Producer - Tara Llewllyn',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/kanneda/BGImage.png' 
       },
        
         {
@@ -202,14 +201,14 @@ const projectListTitle = document.createElement('div');
             projRole: "Draughtsperson - Daily",
             projDesc: "Drama Series \n Apple TV",
             projRefs: 'Production Design - Charlotte Pearson \n Supervising Art Director - Neil McAllister \n Art Director - Edd Cross',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/trying/BGImage.png' 
       },
         {
             project: "Inside No. 9",
             projRole: "Art Director",
             projDesc: "Comedy Drama Series \n BBC",
             projRefs: 'Executive Prods - Steve Pemberton \n Reece Shearsmith \n Producer - Kim Crowther \n Prod Design - Paul Rowan',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/inside-no-9/BGImage.png' 
       },
         {
             project: "Tehran",
@@ -223,21 +222,21 @@ const projectListTitle = document.createElement('div');
             projRole: "Props Supervisor",
             projDesc: 'Haus fo Kraft',
             projRefs: 'Producton Design - Marsha Roddy \n Art Director Jeanefer Jean-Charles',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/tehran/BGImage.png' 
       },
           {
             project: "Kadhal Konjam Thookala",
             projRole: "Art Director",
             projDesc: "Feature \n Cupid Films",
             projRefs: 'Director - Balaji Mohan \n Producer - Ashwani Chopra',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/kkt/BGImage.png' 
       },
           {
             project: "3 Day Millionaire",
             projRole: "Standby Prop",
             projDesc: "Feature \n Shush Films",
             projRefs: 'Director - Jack Spring \n Producer - Lucinda Thakrar\n Producer - Giles Anderson\n Production Designer - Errol Jarc',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/3-day-millionaire/BGImage.png' 
       },
       
           {
@@ -245,42 +244,42 @@ const projectListTitle = document.createElement('div');
             projRole: "Standby Prop",
             projDesc: "Feature \n Hallmark Productions",
             projRefs: 'Director - Jonathan Wright \n Producer - Lucinda Thakrar \n Production Designer - Iain Andrews',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/jolly-good-christmas/BGImage.png' 
       },
           {
             project: "Brain Reaction - Pilot",
             projRole: "Art Director",
             projDesc: "Series \n Chimp TV",
             projRefs: 'Executive Producer - Richard Hammond \n Producer Rob Morris',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/brain-reaction/BGImage.png' 
       },
           {
             project: "The Unlikely Pilgrimage of Harold Fry",
             projRole: "Standby Prop // Dressing Props",
             projDesc: "Feature\n Rose Pine Productions",
             projRefs: 'Director - Hettie Macdonald \n Production Designer - Christina Moore \n Supervising Art Director - Iain White',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/tupohf/BGImage1.png' 
       },
           {
             project: "Meet the Richardsons",
             projRole: "Props",
             projDesc: "Comedy Series\n Second Act Productions",
             projRefs: 'Executive Producer - Lee Hupfield\n Director - Eddie Stafford \n  Art Director - Phoebe Deeprose',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/meet-the-richardsons/BGImage.png' 
       },
           {
             project: "Geordie Shore",
             projRole: "Art Department - Dailies",
             projDesc: "Reality TV \n Lime Pictures",
             projRefs: 'Producer Jamie Zwaig',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/geordie-shore/BGImage.png' 
       },
           {
             project: "Prank King - Pilot",
             projRole: "Art Assistant",
             projDesc: "Reality TV \n ZigZag Productions",
             projRefs: 'Executive Producer - Andy Scott\n Producer - Wendi Rose\n  Art Director - Phoebe Deeprose',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/prank-king/BGImage.png' 
       },
           {
             project: "Backyard Ballistics",
@@ -385,6 +384,9 @@ for ( let i = 0; i <projectsCommercial.length; i++) {
 
 pageSelector.content();
 
+function fadein() {
+      document.getElementsByClassName('projectBGImage').style.opacity = 0;
+}
 
 
 
