@@ -96,11 +96,13 @@ const creditsHeader = document.createElement('div');
 const projectContainer = document.createElement('div');
       projectContainer.id = 'projectsContainer' //this is the container grid styled element - not sure tis is being used anymore
 
-      document.querySelectorAll('.projectBGImage').forEach(header => {
-            header.onclick = function() {
-                console.log('clicked');
-            };
-        });
+// document.body.addEventListener('click', event => {
+//     if (event.target.classList.contains('projectItem')) {
+//         console.log('clicked');
+//     }
+// });
+
+
 
 
 // an array of objects with name and link used to create a navbar 
@@ -150,7 +152,13 @@ const projectListTitle = document.createElement('div');
           projRole: "Production Designer",
           projDesc: "Short Feature \n Channel 4\n Halcyon's Heart",
           projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/person-of-interest/BGImage.png',
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
           project: "Ruby",
@@ -298,37 +306,58 @@ const projectListTitle = document.createElement('div');
       ];
 
       
-
 // for loop controls the addition of the projects to the CV page
 // have used a loop instead of forEach as the indexing is required
 // also is a for loop quikcer?
 
+// need an image bucket for each project???
+
 for ( let i = 0; i <projects.length; i++) {
 
-    
+const project = projects[i];
 
     const projectItem = document.createElement('li');
     projectItem.className = 'projectItem';
+    
 
     const projectBGImage = document.createElement('img');
     projectBGImage.className = ('projectBGImage');
-    projectBGImage.src = (projects[i].projectBGImage)
+    projectBGImage.src = project.projectBGImage
     
     const projectName = document.createElement('div'); // should it be an li?
     projectName.className = 'projectName';
-    projectName.innerText = (projects[i].project);
+    projectName.innerText = project.project
 
     const projectRole = document.createElement('div'); // should it be an div?
     projectRole.className = 'projectRole';
-    projectRole.innerText = (projects[i].projRole);
+    projectRole.innerText = project.projRole;
     
     const projectDescription = document.createElement('div'); // should it be an li?
     projectDescription.className = 'projectDescription';
-    projectDescription.innerText = (projects[i].projDesc);
+    projectDescription.innerText = project.projDesc;
     
     const projectReferences = document.createElement('div'); // should it be an li?
     projectReferences.className = 'projectReferences';
-    projectReferences.innerText = (projects[i].projRefs);
+    projectReferences.innerText = project.projRefs;
+
+    projectItem.id = project.project;
+
+    
+
+    if (project.projectImages && project.projectImages.length > 0) {
+      let currentIndex = 0;
+
+      projectItem.addEventListener('click', () => {
+            projectBGImage.classList.add('active');
+          currentIndex = (currentIndex + 1) % project.projectImages.length;
+          projectBGImage.src = project.projectImages[currentIndex];
+
+          console.log(`Switched to: ${project.projectImages[currentIndex]}`);
+      });
+
+  
+  }   
+
 
     projectItem.append(projectBGImage,projectName, projectRole, projectDescription, projectReferences);
     projectList.append(projectItem);
