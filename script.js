@@ -96,6 +96,13 @@ const creditsHeader = document.createElement('div');
 const projectContainer = document.createElement('div');
       projectContainer.id = 'projectsContainer' //this is the container grid styled element - not sure tis is being used anymore
 
+      document.querySelectorAll('.projectBGImage').forEach(header => {
+            header.onclick = function() {
+                console.log('clicked');
+            };
+        });
+
+
 // an array of objects with name and link used to create a navbar 
 // foreach loop to run through these and create links from array obj components
 
@@ -379,7 +386,9 @@ for ( let i = 0; i <projectsCommercial.length; i++) {
 
     projectItem.append(projectBGImage,projectName, projectRole, projectDescription, projectReferences);
     projectListCommercial.append(projectItem);
-}
+};
+
+
 // Execute page selector program
 
 pageSelector.content();
@@ -387,6 +396,7 @@ pageSelector.content();
 function fadein() {
       document.getElementsByClassName('projectBGImage').style.opacity = 0;
 }
+
 
 
 
