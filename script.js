@@ -138,20 +138,16 @@ const projectList = document.createElement('ul');
 
 const projectListTitle = document.createElement('div');
 
-// const projectItem = document.createElement('li');
-//       projectItem.className = 'projectItem';
-    
-// array of Objects to control Job list entries, designed to be easily editable top down
-// const ProjectListEntries = (projects) =>  {
+
 
     let projects = [
     
        
         {
-          project: "Person of Interest",
-          projRole: "Production Designer",
-          projDesc: "Short Feature \n Channel 4\n Halcyon's Heart",
-          projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena',
+            project: "Person of Interest",
+            projRole: "Production Designer",
+            projDesc: "Short Feature \n Channel 4\n Halcyon's Heart",
+            projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena',
             projectBGImage: 'projectS/person-of-interest/BGImage.png',
             projectImages: [  'projectS/person-of-interest/1.png',
                               'projectS/person-of-interest/2.png',
@@ -161,54 +157,96 @@ const projectListTitle = document.createElement('div');
                         ]
       },
         {
-          project: "Ruby",
-          projRole: "Production Designer",
-          projDesc: "Short Feature \n Channel 4\n Halcyon's Heart",
-          projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            project: "Ruby",
+            projRole: "Production Designer",
+            projDesc: "Short Feature \n Channel 4\n Halcyon's Heart",
+            projRefs: 'Director - Aysha Rafaele \n Exec Producer - Joseph Bullman \n Producer - Meeshan Saxena',
+            projectBGImage: 'projectS/person-of-interest/BGImage.png',
+            projectImages: [  'projectS/person-of-interest/1.png',
+                  'projectS/person-of-interest/2.png',
+                  'projectS/person-of-interest/3.png',
+                  'projectS/person-of-interest/4.png',
+                  'projectS/person-of-interest/5.png'
+            ]
       },
        
         {
-          project: "Standing Set Studio Build",
-          projRole: "Supervising Art Director",
-          projDesc: "Brentford Studios",
-          projRefs: 'Producer - Tara Llwellyn ',
-            projectBGImage: 'projectS/brentford-studios/BGImage.jpg' 
+            project: "Standing Set Studio Build",
+            projRole: "Supervising Art Director",
+            projDesc: "Brentford Studios",
+            projRefs: 'Producer - Tara Llwellyn ',
+            projectBGImage: 'projectS/brentford-studios/BGImage.jpg' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Phoenix Rise Season 4",
             projRole: "Art Director",
             projDesc: "Drama Series \n BBC",
             projRefs: 'Executive Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
-            projectBGImage: 'projectS/phoenix-rise/BGImage.png' 
+            projectBGImage: 'projectS/phoenix-rise/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Karaoke",
             projRole: "Production Designer",
             projDesc: "Short Feature \n RagTag Productions",
             projRefs: 'Director - Ben  \n Producer - Aruhan ',
-            projectBGImage: 'projectS/karaoke/BGImage.png' 
+            projectBGImage: 'projectS/karaoke/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "White Belt",
             projRole: "Art Director",
             projDesc: "Short Feature \n Ki Films",
             projRefs: 'Director - Beau Fowler \n Executive Producer - Andrew Koji \n Producer - David Mullenger',
-            projectBGImage: 'projectS/white-belt/BGImage.png' 
+            projectBGImage: 'projectS/white-belt/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Phoenix Rise Season 3",
             projRole: "Art Director",
             projDesc: "Drama Series \n BBC",
             projRefs: 'Executive Producer - Mark Freeland \n Producer - Alison Matthews \n Production Designer - Kay Brown',
-            projectBGImage: 'projectS/phoenix-rise/BGImage2.png' 
+            projectBGImage: 'projectS/phoenix-rise/BGImage2.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Kanneda",
             projRole: "Production Designer",
             projDesc: "Web Series \n Black Cumin Pictures",
             projRefs: 'Director - Chandan Arora \n Exec Producer - Nitin Upadhyaya \n Producer - Tara Llewllyn',
-            projectBGImage: 'projectS/kanneda/BGImage.png' 
+            projectBGImage: 'projectS/kanneda/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
        
         {
@@ -216,42 +254,78 @@ const projectListTitle = document.createElement('div');
             projRole: "Draughtsperson - Daily",
             projDesc: "Drama Series \n Apple TV",
             projRefs: 'Production Design - Charlotte Pearson \n Supervising Art Director - Neil McAllister \n Art Director - Edd Cross',
-            projectBGImage: 'projectS/trying/BGImage.png' 
+            projectBGImage: 'projectS/trying/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Inside No. 9",
             projRole: "Art Director",
             projDesc: "Comedy Drama Series \n BBC",
             projRefs: 'Executive Prods - Steve Pemberton \n Reece Shearsmith \n Producer - Kim Crowther \n Prod Design - Paul Rowan',
-            projectBGImage: 'projectS/inside-no-9/BGImage.png' 
+            projectBGImage: 'projectS/inside-no-9/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Tehran",
             projRole: "Art Director",
             projDesc: "Motion Picture \n Pacific Worldwide Films",
             projRefs: 'Director - Arun Gopalan \n Producer - Cyrus Patel \n Prod Design - Paul Rowan',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/person-of-interest/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
         {
             project: "Beaneath the Seams",
             projRole: "Props Supervisor",
             projDesc: 'Haus fo Kraft',
             projRefs: 'Producton Design - Marsha Roddy \n Art Director Jeanefer Jean-Charles',
-            projectBGImage: 'projectS/tehran/BGImage.png' 
+            projectBGImage: 'projectS/tehran/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Kadhal Konjam Thookala",
             projRole: "Art Director",
             projDesc: "Feature \n Cupid Films",
             projRefs: 'Director - Balaji Mohan \n Producer - Ashwani Chopra',
-            projectBGImage: 'projectS/kkt/BGImage.png' 
+            projectBGImage: 'projectS/kkt/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "3 Day Millionaire",
             projRole: "Standby Prop",
             projDesc: "Feature \n Shush Films",
             projRefs: 'Director - Jack Spring \n Producer - Lucinda Thakrar\n Producer - Giles Anderson\n Production Designer - Errol Jarc',
-            projectBGImage: 'projectS/3-day-millionaire/BGImage.png' 
+            projectBGImage: 'projectS/3-day-millionaire/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
       
           {
@@ -259,49 +333,91 @@ const projectListTitle = document.createElement('div');
             projRole: "Standby Prop",
             projDesc: "Feature \n Hallmark Productions",
             projRefs: 'Director - Jonathan Wright \n Producer - Lucinda Thakrar \n Production Designer - Iain Andrews',
-            projectBGImage: 'projectS/jolly-good-christmas/BGImage.png' 
+            projectBGImage: 'projectS/jolly-good-christmas/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Brain Reaction - Pilot",
             projRole: "Art Director",
             projDesc: "Series \n Chimp TV",
             projRefs: 'Executive Producer - Richard Hammond \n Producer Rob Morris',
-            projectBGImage: 'projectS/brain-reaction/BGImage.png' 
+            projectBGImage: 'projectS/brain-reaction/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "The Unlikely Pilgrimage of Harold Fry",
             projRole: "Standby Prop // Dressing Props",
             projDesc: "Feature\n Rose Pine Productions",
             projRefs: 'Director - Hettie Macdonald \n Production Designer - Christina Moore \n Supervising Art Director - Iain White',
-            projectBGImage: 'projectS/tupohf/BGImage1.png' 
+            projectBGImage: 'projectS/tupohf/BGImage1.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Meet the Richardsons",
             projRole: "Props",
             projDesc: "Comedy Series\n Second Act Productions",
             projRefs: 'Executive Producer - Lee Hupfield\n Director - Eddie Stafford \n  Art Director - Phoebe Deeprose',
-            projectBGImage: 'projectS/meet-the-richardsons/BGImage.png' 
+            projectBGImage: 'projectS/meet-the-richardsons/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Geordie Shore",
             projRole: "Art Department - Dailies",
             projDesc: "Reality TV \n Lime Pictures",
             projRefs: 'Producer Jamie Zwaig',
-            projectBGImage: 'projectS/geordie-shore/BGImage.png' 
+            projectBGImage: 'projectS/geordie-shore/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Prank King - Pilot",
             projRole: "Art Assistant",
             projDesc: "Reality TV \n ZigZag Productions",
             projRefs: 'Executive Producer - Andy Scott\n Producer - Wendi Rose\n  Art Director - Phoebe Deeprose',
-            projectBGImage: 'projectS/prank-king/BGImage.png' 
+            projectBGImage: 'projectS/prank-king/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       },
           {
             project: "Backyard Ballistics",
             projRole: "Art Department",
             projDesc: "Series \n ZigZag Productions",
             projRefs: 'Executive Producer - Andy Scott\n Producer - Wendi Rose\n  Producer - Rob Morris',
-            projectBGImage: 'projectS/person-of-interest/BGImage.png' 
+            projectBGImage: 'projectS/person-of-interest/BGImage.png' ,
+            projectImages: [  'projectS/person-of-interest/1.png',
+                              'projectS/person-of-interest/2.png',
+                              'projectS/person-of-interest/3.png',
+                              'projectS/person-of-interest/4.png',
+                              'projectS/person-of-interest/5.png'
+                        ]
       }
       ];
 
@@ -318,7 +434,9 @@ const project = projects[i];
 
     const projectItem = document.createElement('li');
     projectItem.className = 'projectItem';
-    
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'projectBGImageWrapper';
 
     const projectBGImage = document.createElement('img');
     projectBGImage.className = ('projectBGImage');
@@ -335,6 +453,7 @@ const project = projects[i];
     const projectDescription = document.createElement('div'); // should it be an li?
     projectDescription.className = 'projectDescription';
     projectDescription.innerText = project.projDesc;
+    projectDescription.id = project.projDesc;
     
     const projectReferences = document.createElement('div'); // should it be an li?
     projectReferences.className = 'projectReferences';
@@ -343,25 +462,53 @@ const project = projects[i];
     projectItem.id = project.project;
 
     
+//  this below scrolls through indexed images in the repo of the project
+// and adds each one on mouseclikc
+//checks there are more images to load first
+
+// have created a forEach function which takes events as an array input and processes 
+// event listeners to output the same resutl for multiple events, 
+// rather than writing the same code ttwice for each event
 
     if (project.projectImages && project.projectImages.length > 0) {
       let currentIndex = 0;
 
-      projectItem.addEventListener('click', () => {
-            projectBGImage.classList.add('active');
-          currentIndex = (currentIndex + 1) % project.projectImages.length;
-          projectBGImage.src = project.projectImages[currentIndex];
 
-          console.log(`Switched to: ${project.projectImages[currentIndex]}`);
-      });
+      const clickEvents = ['click', 'onTouchStart'];
 
-  
-  }   
+            clickEvents.forEach(event =>  {
+                  projectItem.addEventListener(event, () => {
+                  projectBGImage.classList.add('active');
+                   currentIndex = (currentIndex + 1) % project.projectImages.length;
+            
+                  projectBGImage.src = project.projectImages[currentIndex];
 
+            });
 
-    projectItem.append(projectBGImage,projectName, projectRole, projectDescription, projectReferences);
-    projectList.append(projectItem);
-};
+});
+            const hoverEvents = ['mouseover','active'];
+            
+                  hoverEvents.forEach(event => {
+
+                  projectItem.addEventListener(event, () => {
+                  imageWrapper.classList.add('active');
+                  
+                  setTimeout(() => {
+                  imageWrapper.classList.remove('active');
+                  }, 3000);
+            });
+            });
+            
+
+      imageWrapper.appendChild(projectBGImage);
+      projectItem.append(imageWrapper,projectName, projectRole, projectDescription, projectReferences);
+      projectList.append(projectItem);
+}};
+
+// so i need to find a way to consolidaet the commercials and ftv lists, 
+// could just tack the commercial projects onto the end of the ftv list
+// then insertbefore 'commercials' header for the first on commericals list
+// need to use 'find' and 'includes' and create an id for the project descritpion, which will include the word 'commercials'
 
 let projectsCommercial = [
     
@@ -424,74 +571,4 @@ pageSelector.content();
 
 function fadein() {
       document.getElementsByClassName('projectBGImage').style.opacity = 0;
-}
-
-
-
-
-
-
-
-//footer.append() - links to contact, fun APIs, designed by me text
-
-
-///*the other way to do this would be to stack entries? pushing onto the array and calling latest addition but not sure how to do this.
-
-
-//this needs to be a function, and might be better suited to being an array
-
-
-
-
-// api's to be listed on site - 
-// surf forecast in UK areas
-// exhibitions listed in London
-// films listed at Castle cinema Hackney
-
-
-///* stuff to do or has been done  - 
-
-////job titel object
-
-//data - 
-
-//array of objects with named values, referenced by looped object constructor in main script
-
-//tried and failed  - 
-
-//const projectDetails = (jobTitle[i],jobRole[i],jobDesc[i],jobReferences[i]) => {
-
-
-
-//     jobTitle : 'jobTitle';
-//     // create an id and style it for this property
-//     // repeat for each property
-//     // needs to be grid css i think
-//     // project name needs to be put in a container within the container
-//     2 : 'projectName' ;
-//     3 : 'description' ;
-//     4 : 'references' ;
-
-// }
-
-
-// const Project = (projectDetails) => {
-
-//     const jobTitle = [];
-//     jobTitle.id = 'jobTitle';
-
-//     const jobRole = [];
-//     jobRole.id = 'jobRole';
-
-//     const jobDesc = [];
-//     jobDesc.id = 'jobDesc';
-
-//     const jobReferences = [];
-//     jobReferences.id = 'jobReferences';
-
-
-  
-//     document.createElement('li');
-// projectDetails.id = 'project'[i];
-
-// return projectDetails   };
+};

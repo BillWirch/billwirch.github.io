@@ -4,7 +4,7 @@
     --font-family: Arial, Helvetica, sans-serif;
     --color: hsl(180, 5%, 16%);
     --border-radius: 5px;
-    --box-shadow: 7px 7px 1px rgb(231, 231, 231);
+    --box-shadow: 14px 14px 1px rgb(231, 231, 231);
 
 }
 /* 
@@ -144,22 +144,6 @@ body {
 
 
 
-
-/* Project List Container */
-header.projectList {
-    display: grid;
-    /* flex-direction: column; */
-    align-items: center;
-    justify-content: center;
-    width: 60vw;
-    height: 66vh; Two-thirds of the screen
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-   
-    outline: 2px solid rgb(231, 231, 231);
-    
-}
-
 /* Styling the List */
 ul.projectList {
     display: grid;
@@ -180,12 +164,11 @@ ul.projectList {
     align-items: baseline;
     gap: 10px;
     /* background-color: var(--primary-color); */
-    padding: 15px;
+    padding: 5px;
     margin: 2rem;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
     outline: 2px solid rgb(231, 231, 231);
-    margin-bottom: 20px;
     transition-duration: 0.4s;
 }
 
@@ -197,6 +180,55 @@ ul.projectList {
 /* size below image to fit media // container?
 screen effect
  */
+
+
+  .projectBGImageWrapper {
+
+    position: relative;
+    grid-row: 1 / 6;            
+    grid-column: 1 / 3;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: -1;
+    /* mix-blend-mode: screen; */
+ }
+
+ .projectBGImage  {
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+    /* padding: 10; */
+    display: block;
+} 
+
+.projectBGImageWrapper::after {
+    content: url(projectS/person-of-interest/BGImage2.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    /* mix-blend-mode:hard-light; */
+    /* backdrop-filter: brightness(75%) contrast(1.5) grayscale(100%); */
+    border-radius: 10px;
+    transform: translateX(0%);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+/* Slide filter away on hover or active */
+.projectBGImageWrapper:hover::after,
+.projectBGImageWrapper.active::after {
+    transform: translateX(100%);
+}
+
+
+
 /* .projectBGImage {
 
 
@@ -212,53 +244,8 @@ screen effect
     border-radius: 10px;
     padding: 0;
     z-index: -1;
-
-    animation: BGImageSlider 5s;
   
-}
-
-@keyframes BGImageSlider    {
-    
 } */
-
-.projectBGImage {
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    object-fit: contain;
-    mix-blend-mode: screen;
-    grid-row: 1/6;
-    grid-column: 1/3;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    padding: 0;
-    z-index: -1;
-    overflow: hidden;
-}
-
-/* Filter overlay */
-.projectBGImage::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: brightness(75%) contrast(1.5) grayscale(100%);
-    transform: translateX(100%);
-    transition: transform 1s ease-in-out;
-    z-index: 2;
-    pointer-events: none;
-}
-
-/* Hover OR .active triggers the slide */
-.projectBGImage:hover::after,
-.projectBGImage.active::after {
-    transform: translateX(100%);
-}
 
 /* Project Details */
 .projectName {
@@ -270,8 +257,7 @@ screen effect
     /* text-shadow: 5px 5px 1px rgb(231, 231, 231); */
     text-transform: capitalize;
     /* text-shadow: 2px 2px 1px rgb(231, 231, 231); */
-   
-    padding: 1rem;
+    padding: .3rem;
     /* align-self: right; */
     /* text-align:start; */
     align-self: stretch;
