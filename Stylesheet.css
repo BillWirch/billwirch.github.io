@@ -205,26 +205,30 @@ screen effect
     display: block;
 } 
 
-.projectBGImageWrapper::after {
-    content: url(projectS/person-of-interest/BGImage2.png);
+.projectBGImageWrapper:after {
+    /* do not put the content here in css, it needs to be added in JS. access the wrapper/content prop 
+    in js for dynamic content */
+    content:'';
     position: absolute;
     top: 0;
     left: 0;
+    background-position: center;
     height: 100%;
     width: 100%;
+    object-fit: contain;
     background: rgba(0, 0, 0, 0.25);
     /* mix-blend-mode:hard-light; */
     /* backdrop-filter: brightness(75%) contrast(1.5) grayscale(100%); */
     border-radius: 10px;
-    transform: translateX(0%);
-    transition: transform 0.5s ease;
+    transform: translateX(200%);
+    transition: transform 0.8s ease;
     pointer-events: none;
 }
 
 /* Slide filter away on hover or active */
 .projectBGImageWrapper:hover::after,
 .projectBGImageWrapper.active::after {
-    transform: translateX(100%);
+    transform: translateX(0%);
 }
 
 

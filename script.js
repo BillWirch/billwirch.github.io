@@ -492,12 +492,14 @@ const project = projects[i];
 
                   projectItem.addEventListener(event, () => {
                   imageWrapper.classList.add('active');
-                  
+
                   setTimeout(() => {
                   imageWrapper.classList.remove('active');
                   }, 3000);
             });
             });
+
+            document.querySelector('.projectBGImageWrapper')
             
 
       imageWrapper.appendChild(projectBGImage);
